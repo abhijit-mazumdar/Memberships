@@ -1,0 +1,43 @@
+﻿@model Memberships.Areas.Admin.Models.SmallButtonModel
+@using Memberships.Areas.Admin.Models;
+
+<td style="width: 120px">
+    <div class="btn-group" role="group">
+        @Html.Partial("_SmallButtonPartial",
+        new SmallButtonModel
+        {
+            Action = "Edit",
+            ButtonType = "btn-primary",
+            Glyph = "pencil",
+            Text = "Edit Button",
+            Id = Model.Id,
+            ItemId = Model.ItemId,
+            ProductId = Model.ProductId,
+            SubscriptionId = Model.SubscriptionId
+        })
+        @Html.Partial("_SmallButtonPartial",
+            new SmallButtonModel
+            {
+                Action = "Details",
+                ButtonType = "btn-success",
+                Glyph = "list",
+                Text = "Detail Button",
+                Id = Model.Id,
+                ItemId = Model.ItemId,
+                ProductId = Model.ProductId,
+                SubscriptionId = Model.SubscriptionId
+            })
+        @Html.Partial("_SmallButtonPartial",
+            new SmallButtonModel
+            {
+                Action = "Delete",
+                ButtonType = "btn-danger",
+                Glyph = "trash",
+                Text = "Delete Button",
+                Id = Model.Id,
+                ItemId = Model.ItemId,
+                ProductId = Model.ProductId,
+                SubscriptionId = Model.SubscriptionId
+            })
+    </div>
+</td>
