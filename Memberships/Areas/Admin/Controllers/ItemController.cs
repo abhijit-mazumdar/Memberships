@@ -9,9 +9,11 @@ using System.Web;
 using System.Web.Mvc;
 using Memberships.Entities;
 using Memberships.Models;
+using System.Transactions;
 
 namespace Memberships.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ItemController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -46,15 +48,16 @@ namespace Memberships.Areas.Admin.Controllers
                 Parts = db.Parts.ToList(),
                 Sections = db.Sections.ToList()
             };
+
             return View(model);
         }
 
         // POST: Admin/Item/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,ImageUrl,HTML,WaitDays,ProductId,ItemTypeId,SectionId,PartId,IsFree")] Item item)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Title,Description,Url,ImageUrl,HTML,WaitDays,ProductId,ItemTypeId,SectionId,PartId,IsFree")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -86,10 +89,10 @@ namespace Memberships.Areas.Admin.Controllers
 
         // POST: Admin/Item/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Description,ImageUrl,HTML,WaitDays,ProductId,ItemTypeId,SectionId,PartId,IsFree")] Item item)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Title,Description,Url,ImageUrl,HTML,WaitDays,ProductId,ItemTypeId,SectionId,PartId,IsFree")] Item item)
         {
             if (ModelState.IsValid)
             {
@@ -121,8 +124,22 @@ namespace Memberships.Areas.Admin.Controllers
         public async Task<ActionResult> DeleteConfirmed(int id)
         {
             Item item = await db.Items.FindAsync(id);
-            db.Items.Remove(item);
-            await db.SaveChangesAsync();
+            using (var transaction = new TransactionScope(
+                    TransactionScopeAsyncFlowOption.Enabled))
+            {
+                try
+                {
+                    var prodItems = db.ProductItems.Where(
+                        pi => pi.ItemId.Equals(id));
+                    db.ProductItems.RemoveRange(prodItems);
+                    db.Items.Remove(item);
+
+                    await db.SaveChangesAsync();
+                    transaction.Complete();
+                }
+                catch { transaction.Dispose(); }
+            }
+
             return RedirectToAction("Index");
         }
 

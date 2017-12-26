@@ -20,19 +20,19 @@ namespace Memberships.Entities
         [MaxLength(2048)]
         public string Description { get; set; }
         [MaxLength(1024)]
-        [DisplayName("Image URL")]
+        public string Url { get; set; }
+        [MaxLength(1024)]
+        [DisplayName("Image Url")]
         public string ImageUrl { get; set; }
         [AllowHtml]
         public string HTML { get; set; }
         [DefaultValue(0)]
         [DisplayName("Wait Days")]
         public int WaitDays { get; set; }
-
-        public string HTMLShort
-        {
-            get { return HTML == null || HTML.Length < 50 ? HTML : HTML.Substring(0, 50); }
+        public string HTMLShort {
+            get { return HTML == null || HTML.Length < 50 ? 
+                    HTML : HTML.Substring(0, 50); }
         }
-
         public int ProductId { get; set; }
         public int ItemTypeId { get; set; }
         public int SectionId { get; set; }

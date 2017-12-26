@@ -19,7 +19,6 @@ namespace Memberships.Entities
         public string Description { get; set; }
         [MaxLength(1024)]
         public string ImageUrl { get; set; }
-
         public int ProductLinkTextId { get; set; }
         public int ProductTypeId { get; set; }
     }

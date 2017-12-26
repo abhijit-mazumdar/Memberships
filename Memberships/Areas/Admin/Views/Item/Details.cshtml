@@ -27,6 +27,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.Url)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Url)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.ImageUrl)
         </dt>
 
@@ -94,5 +102,5 @@
 </div>
 <p>
     @Html.Partial("_EditButtonPartial", Model.Id)
-    @Html.Partial("_BackToListButtonPartial")   
+    @Html.Partial("_BackToListButtonPartial")
 </p>

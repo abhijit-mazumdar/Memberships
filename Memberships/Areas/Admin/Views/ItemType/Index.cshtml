@@ -23,8 +23,8 @@
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
-@Html.Partial("_TableButtonsPartial",
-    new SmallButtonModel { Id = item.Id })
+        @Html.Partial("_TableButtonsPartial",
+            new SmallButtonModel { Id = item.Id })
     </tr>
 }
 

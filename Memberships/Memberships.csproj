@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" />
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{DD9E6231-5F39-4BCB-B4E6-D055C28B72B6}</ProjectGuid>
+    <ProjectGuid>{F6CEAC68-33B9-4C20-91B9-DA4C7EB428CA}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -18,7 +18,6 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <Use64BitIISExpress />
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -37,7 +36,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
@@ -46,13 +44,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -161,27 +161,6 @@
     <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
       <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ApplicationInsights">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.2.2.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AI.Agent.Intercept">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.0.6\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.2.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.2.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.2.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.2.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AI.Web">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.2.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -193,47 +172,86 @@
     <Compile Include="Areas\Admin\Controllers\ItemController.cs" />
     <Compile Include="Areas\Admin\Controllers\ItemTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\PartController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ProductItemController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductLinkTextController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductTypeController.cs" />
     <Compile Include="Areas\Admin\Controllers\SectionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubscriptionController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SubscriptionProductController.cs" />
+    <Compile Include="Areas\Admin\Extensions\ConversionExtensions.cs" />
+    <Compile Include="Areas\Admin\Models\EditButtonModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductItemModel.cs" />
+    <Compile Include="Areas\Admin\Models\ProductModel.cs" />
     <Compile Include="Areas\Admin\Models\SmallButtonModel.cs" />
+    <Compile Include="Areas\Admin\Models\SubscriptionProductModel.cs" />
+    <Compile Include="Comparers\ProductSectionEqualityComparer.cs" />
+    <Compile Include="Comparers\ThumbnailEqualityComparer.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Entities\ItemType.cs" />
+    <Compile Include="Controllers\ProductContentController.cs" />
+    <Compile Include="Controllers\RegisterCodeController.cs" />
     <Compile Include="Entities\Item.cs" />
-    <Compile Include="Entities\SubscriptionProduct.cs" />
+    <Compile Include="Entities\ItemType.cs" />
+    <Compile Include="Entities\Part.cs" />
+    <Compile Include="Entities\Product.cs" />
     <Compile Include="Entities\ProductItem.cs" />
-    <Compile Include="Entities\Subscription.cs" />
     <Compile Include="Entities\ProductLinkText.cs" />
     <Compile Include="Entities\ProductType.cs" />
-    <Compile Include="Entities\Product.cs" />
-    <Compile Include="Entities\Part.cs" />
     <Compile Include="Entities\Section.cs" />
+    <Compile Include="Entities\Subscription.cs" />
+    <Compile Include="Entities\SubscriptionProduct.cs" />
     <Compile Include="Entities\UserSubscription.cs" />
+    <Compile Include="Extensions\EmaiExtensions.cs" />
+    <Compile Include="Extensions\HtmlExtensions.cs" />
+    <Compile Include="Extensions\HttpContextExtensions.cs" />
     <Compile Include="Extensions\ICollectionExtensions.cs" />
+    <Compile Include="Extensions\IdentityExtension.cs" />
     <Compile Include="Extensions\ReflectionExtensions.cs" />
+    <Compile Include="Extensions\SectionExtensions.cs" />
+    <Compile Include="Extensions\SubscriptionExtensions.cs" />
+    <Compile Include="Extensions\ThumbnailExtensions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ContentViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductItemRow.cs" />
+    <Compile Include="Models\ProductSection.cs" />
+    <Compile Include="Models\ProductSectionModel.cs" />
+    <Compile Include="Models\RegisterUserModel.cs" />
+    <Compile Include="Models\ThumbnailAreaModel.cs" />
+    <Compile Include="Models\ThumbnailModel.cs" />
+    <Compile Include="Models\UserSubscriptionModel.cs" />
+    <Compile Include="Models\UserSubscriptionViewModel.cs" />
+    <Compile Include="Models\UserViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\carret.css" />
+    <Content Include="Content\forgot-password.css" />
+    <Content Include="Content\html.css" />
     <Content Include="Content\Images\csharp-for-beginners.png" />
     <Content Include="Content\Images\csharp-zip.png" />
     <Content Include="Content\Images\laptop.jpg" />
     <Content Include="Content\Images\pdf.png" />
     <Content Include="Content\Images\unit-testing.png" />
     <Content Include="Content\Images\video.png" />
-    <Content Include="Content\Logos\membership-icon-30x152.png" />
-    <Content Include="Content\Logos\membership-icon-45x184.png" />
+    <Content Include="Content\login.css" />
+    <Content Include="Content\Logos\membership-icon-small.png" />
+    <Content Include="Content\Logos\membership-icon-large.png" />
+    <Content Include="Content\navbar.css" />
+    <Content Include="Content\ProductContent.css" />
+    <Content Include="Content\RegisterCode.css" />
+    <Content Include="Content\RegisterUser.css" />
+    <Content Include="Content\thumbnails.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -241,23 +259,15 @@
     <Content Include="Scripts\AdminMenu.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="ApplicationInsights.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Documents\test_pdf.pdf" />
     <Content Include="Areas\Admin\Views\web.config" />
-    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Section\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Section\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Section\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Section\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Section\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_BackToListButtonPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_EditButtonPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_CreateButtonPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_SmallButtonPartial.cshtml" />
-    <Content Include="Areas\Admin\Views\Shared\_TableButtonsPartial.cshtml" />
     <Content Include="Areas\Admin\Views\Part\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Part\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\Part\Details.cshtml" />
@@ -283,7 +293,32 @@
     <Content Include="Areas\Admin\Views\Item\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Item\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Item\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Product\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Subscription\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductItem\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductItem\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductItem\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductItem\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductItem\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_EditButtonDetailPartial.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\SubscriptionProduct\Index.cshtml" />
+    <Content Include="Content\Documents\test_pdf.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\carret.js" />
+    <Content Include="Scripts\code.js" />
+    <Content Include="Scripts\forgot-password.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -291,9 +326,13 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JWPlayer.js" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\RegisterUser.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -329,21 +368,35 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_AdminMenuPartial.cshtml" />
+    <Content Include="Views\Shared\_CreateButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_TableButtonsPartial.cshtml" />
+    <Content Include="Views\Shared\_BackToListButtonPartial.cshtml" />
+    <Content Include="Views\Shared\_SmallButtonPartial.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\Account\Create.cshtml" />
+    <Content Include="Views\Account\Edit.cshtml" />
+    <Content Include="Views\Account\Delete.cshtml" />
+    <Content Include="Views\Account\Subscriptions.cshtml" />
+    <Content Include="Views\Shared\_ThumbnailAreaPartial.cshtml" />
+    <Content Include="Views\ProductContent\Index.cshtml" />
+    <Content Include="Views\ProductContent\_ProductSectionPartial.cshtml" />
+    <Content Include="Views\ProductContent\_ProductItemRowPartial.cshtml" />
+    <Content Include="Views\ProductContent\Content.cshtml" />
+    <Content Include="Views\Shared\_RegisterCodePartial.cshtml" />
+    <Content Include="Views\Shared\_RegisterUserPartial.cshtml" />
+    <Content Include="Views\Shared\_LoginPanelPartial.cshtml" />
+    <Content Include="Views\Shared\_ForgotPasswordPanelPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\RegisterCode\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <PropertyGroup>
@@ -362,9 +415,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>51333</DevelopmentServerPort>
+          <DevelopmentServerPort>58453</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:51333/</IISUrl>
+          <IISUrl>http://localhost:58453/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -378,8 +431,8 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.3.2\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
